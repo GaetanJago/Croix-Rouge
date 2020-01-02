@@ -11,6 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 #=====================================================================================================================
 import menu
+import data
 #=====================================================================================================================
 
 class Ui_MainWindow(object):
@@ -107,7 +108,7 @@ class Ui_MainWindow(object):
 		self.verticalLayout_3.addWidget(self.label_Part)
 		self.comboBox_Part = QtWidgets.QComboBox(self.verticalWidget)
 		self.comboBox_Part.setObjectName("comboBox_Part")
-		self.comboBox_Part.addItem("")
+		#self.comboBox_Part.addItem("")	#=====================================================================================================================
 		self.verticalLayout_3.addWidget(self.comboBox_Part)
 		self.label_6 = QtWidgets.QLabel(self.verticalWidget)
 		self.label_6.setObjectName("label_6")
@@ -234,15 +235,20 @@ class Ui_MainWindow(object):
 			ui = menu.Ui_MainWindow()
 			ui.setupUi(MainWindow)
 		self.pushButton_back.clicked.connect(back)
+
+		#Affectation catégories
+		cat = data.readAllParts()
+		for part in cat:
+			self.comboBox_Part.addItem(part)
 		#=====================================================================================================================
 
 	def retranslateUi(self, MainWindow):
 		_translate = QtCore.QCoreApplication.translate
-		MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+		#MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#=====================================================================================================================
 		self.label_3.setText(_translate("MainWindow", "Créer un exercice"))
 		self.label_5.setText(_translate("MainWindow", "Nom de l\'exercice"))
 		self.label_Part.setText(_translate("MainWindow", "Partie du corps"))
-		self.comboBox_Part.setItemText(0, _translate("MainWindow", "Membre supérieur"))
+		#self.comboBox_Part.setItemText(0, _translate("MainWindow", "Membre supérieur"))
 		self.label_6.setText(_translate("MainWindow", "Description"))
 		self.label_indication.setText(_translate("MainWindow", "Calibration en cours... Veuillez étirer les bras "))
 		self.pushButton_replay.setText(_translate("MainWindow", "Rejouer"))

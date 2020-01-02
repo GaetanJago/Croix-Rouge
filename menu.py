@@ -13,12 +13,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import creerExo
 import bibliotheque
 import patients
+import os
+import ctypes
 #=====================================================================================================================
 
 class Ui_MainWindow(object):
 	def setupUi(self, MainWindow):
 		MainWindow.setObjectName("MainWindow")
-		#MainWindow.resize(640, 495)		#=====================================================================================================================
+		MainWindow.resize(1200, 650)		#=====================================================================================================================
 		self.centralwidget = QtWidgets.QWidget(MainWindow)
 		self.centralwidget.setObjectName("centralwidget")
 		self.gridLayout_3 = QtWidgets.QGridLayout(self.centralwidget)
@@ -113,7 +115,10 @@ class Ui_MainWindow(object):
 		self.label.setMaximumSize(QtCore.QSize(600, 300))
 		self.label.setStyleSheet("")
 		self.label.setText("")
-		self.label.setPixmap(QtGui.QPixmap("Interface CR/croixrouge.png"))
+		
+		scriptDir = os.path.dirname(os.path.realpath(__file__))	
+		self.label.setPixmap(QtGui.QPixmap(scriptDir + os.path.sep + 'images' + os.path.sep +'croix.png'))
+
 		self.label.setScaledContents(False)
 		self.label.setAlignment(QtCore.Qt.AlignCenter)
 		self.label.setWordWrap(False)
@@ -156,12 +161,11 @@ class Ui_MainWindow(object):
 		self.pushButton_creer.clicked.connect(creer)
 		self.pushButton_gestion.clicked.connect(gestion)
 		self.pushButton_lib.clicked.connect(lib)
-
 		#=====================================================================================================================
 
 	def retranslateUi(self, MainWindow):
 		_translate = QtCore.QCoreApplication.translate
-		MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+		MainWindow.setWindowTitle(_translate("MainWindow", "Application Croix Rouge"))
 		self.label_2.setText(_translate("MainWindow", "Menu Principal"))
 		self.pushButton_creer.setText(_translate("MainWindow", "Créer un exercice"))
 		self.pushButton_lib.setText(_translate("MainWindow", "Bibliothèque d\'exercices"))
@@ -170,10 +174,19 @@ class Ui_MainWindow(object):
 
 
 if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.showMaximized()#=====================================================================================================================
-    sys.exit(app.exec_())
+	import sys
+	app = QtWidgets.QApplication(sys.argv)
+
+	#=====================================================================================================================
+	# set icon for window and for taskbar
+	scriptDir = os.path.dirname(os.path.realpath(__file__))	
+	app.setWindowIcon(QtGui.QIcon(scriptDir + os.path.sep + 'images' + os.path.sep +'icon.png'))	
+	myappid = 'mycompany.myproduct.subproduct.version' # arbitrary string
+	ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+	#=====================================================================================================================
+
+	MainWindow = QtWidgets.QMainWindow()
+	ui = Ui_MainWindow()
+	ui.setupUi(MainWindow)
+	MainWindow.show()#=====================================================================================================================
+	sys.exit(app.exec_())

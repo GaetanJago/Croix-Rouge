@@ -11,6 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 #=====================================================================================================================
 import menu
+import data
 #=====================================================================================================================
 
 class Ui_MainWindow(object):
@@ -98,7 +99,7 @@ class Ui_MainWindow(object):
         self.comboBox_membre = QtWidgets.QComboBox(self.base)
         self.comboBox_membre.setStyleSheet("font: 12pt \"MS Shell Dlg 2\";")
         self.comboBox_membre.setObjectName("comboBox_membre")
-        self.comboBox_membre.addItem("")
+        #self.comboBox_membre.addItem("") #=====================================================================================================================
         self.verticalLayout.addWidget(self.comboBox_membre)
         self.tableWidget_exo = QtWidgets.QTableWidget(self.base)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
@@ -211,16 +212,21 @@ class Ui_MainWindow(object):
             ui = menu.Ui_MainWindow()
             ui.setupUi(MainWindow)
         self.pushButton_back.clicked.connect(back)
-     	#=====================================================================================================================
+
+        #Affectation catégories
+        cat = data.readAllParts()
+        for part in cat:
+            self.comboBox_membre.addItem(part)
+        #=====================================================================================================================
 
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        #MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#=====================================================================================================================
         self.label_3.setText(_translate("MainWindow", "Bibliothèque"))
         self.label.setText(_translate("MainWindow", "Selectionner un exercice"))
         self.label_5.setText(_translate("MainWindow", "Partie du corps"))
-        self.comboBox_membre.setItemText(0, _translate("MainWindow", "Membre supérieur"))
+        #self.comboBox_membre.setItemText(0, _translate("MainWindow", "Membre supérieur")) #=====================================================================================================================
         item = self.tableWidget_exo.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Exercice"))
         self.label_2.setText(_translate("MainWindow", "Séquence vidéo"))
