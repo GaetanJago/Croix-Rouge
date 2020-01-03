@@ -15,6 +15,9 @@ import bibliotheque
 import patients
 import os
 import ctypes
+import data
+from data import AppData
+from data import Patient
 #=====================================================================================================================
 
 class Ui_MainWindow(object):
