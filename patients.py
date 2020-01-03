@@ -8,10 +8,15 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 #=====================================================================================================================
 import menu
 import programme
+import data
+from data import AppData
+from data import Patient
+
 #=====================================================================================================================
 
 class Ui_MainWindow(object):
@@ -218,7 +223,43 @@ class Ui_MainWindow(object):
             ui.setupUi(MainWindow)
         self.pushButton_back.clicked.connect(back)
         self.pushButton_gestion.clicked.connect(prog)
-		#=====================================================================================================================
+
+        #Ajout d'un patient
+        def addPatient(name,ipp):
+            #message de confirmation
+            qm = QtWidgets.QMessageBox()
+            reply = qm.question(MainWindow, 'Continuer ?','Voulez vraiment ajouter ' + name + "(" + ipp + ") ?", qm.Yes, qm.No)
+            if reply == qm.Yes:
+                new = data.deserialize()
+                new.getListPatient().append(Patient(name , ipp))
+                data.seralize(new)
+                syncData()
+
+                #Clear fields
+                self.lineEdit_name.setText("")
+                self.lineEdit_ipp.setText("")
+             
+            
+        self.pushButton_add.clicked.connect(lambda : addPatient(self.lineEdit_name.text(),self.lineEdit_ipp.text()))
+
+        #Synchronise le tableau avec les données (des patients)
+        def syncData():
+            self.tableWidget.setRowCount(0) #clean before
+            d = data.deserialize()
+            i = 0
+            for p in d.getListPatient() :
+                rowPosition = self.tableWidget.rowCount()
+                self.tableWidget.insertRow(rowPosition)
+                self.tableWidget.setItem(rowPosition, 0, QtWidgets.QTableWidgetItem(p.getName()))
+                self.tableWidget.setItem(rowPosition, 1, QtWidgets.QTableWidgetItem(p.getIpp()))
+        #sync data dans le tableau and ajustement des tailles des colonnes
+        syncData()
+        header = self.tableWidget.horizontalHeader()
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+        #=====================================================================================================================
+
+    
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

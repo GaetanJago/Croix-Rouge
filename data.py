@@ -137,18 +137,15 @@ def deserialize():
     fp.close()
     return obj
 
+def initEmptyData():
+    biblioteque = []
+    patients = []
+    program = []
+    data = AppData(biblioteque, patients, program)
+    seralize(data)
+    print('data cleared')
 
 if __name__ == "__main__":
     print("main launched")
-    """
-    parts = readAllParts()
-    for part in parts :
-        print(part)
-    """
-    obj = Patient("jaques" , "454514545")
-    seralize(obj)
-    a = deserialize()
-    print(a.getName())
-    a.setName("paul")
-    print(a.getName())
+    initEmptyData()
     pass
