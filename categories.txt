@@ -1,6 +1,7 @@
 - jambe
 jambe droite
-jambe Gauche
+jambe gauche
 - haut du corps
+bras gauche
 - tout le corps
 hanches
