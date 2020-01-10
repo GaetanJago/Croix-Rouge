@@ -3,12 +3,11 @@ Epaule
 Coude
 Avant bras
 Poignets
-Mouvements combinés
+Mouvements combines
 - Membre inférieur
 Hanche
 Genou
 Pied
-Mouvements combinés
 
-Hémicorps
-Mouvements symétriques
+Hemicorps
+Mouvements symetriques

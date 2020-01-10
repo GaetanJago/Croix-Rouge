@@ -114,7 +114,7 @@ def readAllParts(file = 'categories.txt'):
     line = fp.readline()
     while line != '':  # The EOF char is an empty string
         line = line.rstrip() #skip \n
-        if(line[0] != '-'):#if "-" is read, it's a main part
+        if len(line) > 0 and line[0] != '-':#if "-" is read, it's a main part
             parts.append(line)
         line = fp.readline()
     fp.close()
