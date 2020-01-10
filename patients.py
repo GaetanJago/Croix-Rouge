@@ -14,13 +14,20 @@ from PyQt5.QtWidgets import QMessageBox
 import menu
 import programme
 import data
+import sys
 from data import AppData
 from data import Patient
 
-#=====================================================================================================================
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 class Ui_MainWindow(object):
+    """
+    Class to load patient management view
+    """
     def setupUi(self, MainWindow):
+        """
+        Setup to load patient management view
+        """
         MainWindow.setObjectName("MainWindow")
         #MainWindow.resize(904, 696)#=====================================================================================================================
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -215,55 +222,59 @@ class Ui_MainWindow(object):
 
         #=====================================================================================================================
         #Affectation des boutons
-        def back(self):
-            ui = menu.Ui_MainWindow()
-            ui.setupUi(MainWindow)
-        def prog(self):
-            ui = programme.Ui_MainWindow()
-            ui.setupUi(MainWindow)
-        self.pushButton_back.clicked.connect(back)
-        self.pushButton_gestion.clicked.connect(prog)
+        
+        self.pushButton_back.clicked.connect(lambda : self.back(MainWindow))
+        self.pushButton_gestion.clicked.connect(lambda : self.prog(MainWindow))
+        self.pushButton_add.clicked.connect(lambda : self.addPatient(self.lineEdit_name.text(),self.lineEdit_ipp.text()))
 
-        #Ajout d'un patient
-        def addPatient(name,ipp):
-            #message de confirmation
-            qm = QtWidgets.QMessageBox()
-            reply = qm.question(MainWindow, 'Continuer ?','Voulez vraiment ajouter ' + name + "(" + ipp + ") ?", qm.Yes, qm.No)
-            if reply == qm.Yes:
-                new = data.deserialize()
-                new.getListPatient().append(Patient(name , ipp))
-                data.seralize(new)
-                syncData()
-
-                #Clear fields
-                self.lineEdit_name.setText("")
-                self.lineEdit_ipp.setText("")
-             
-            
-        self.pushButton_add.clicked.connect(lambda : addPatient(self.lineEdit_name.text(),self.lineEdit_ipp.text()))
-
-        #Synchronise le tableau avec les données (des patients)
-        def syncData():
-            self.tableWidget.setRowCount(0) #clean before
-            d = data.deserialize()
-            i = 0
-            for p in d.getListPatient() :
-                rowPosition = self.tableWidget.rowCount()
-                self.tableWidget.insertRow(rowPosition)
-                self.tableWidget.setItem(rowPosition, 0, QtWidgets.QTableWidgetItem(p.getName()))
-                self.tableWidget.setItem(rowPosition, 1, QtWidgets.QTableWidgetItem(p.getIpp()))
         #sync data dans le tableau and ajustement des tailles des colonnes
-        syncData()
+        self.syncData()
         header = self.tableWidget.horizontalHeader()
         header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
         header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
-        #=====================================================================================================================
+
+    def addPatient(self,name,ipp):
+        """Method to add and save a new patient using the fields"""
+        #Confirmation message
+        qm = QtWidgets.QMessageBox()
+        reply = qm.question(MainWindow, 'Continuer ?','Voulez vraiment ajouter ' + name + "(" + ipp + ") ?", qm.Yes, qm.No)
+        if reply == qm.Yes:
+            new = data.deserialize()
+            new.getListPatient().append(Patient(name , ipp))
+            data.seralize(new)
+            self.syncData()
+
+            #Clear fields
+            self.lineEdit_name.setText("")
+            self.lineEdit_ipp.setText("")
+    
+    def syncData(self):
+        """Sync tabView with patients data"""
+        self.tableWidget.setRowCount(0) #clean before
+        d = data.deserialize()
+        i = 0
+        for p in d.getListPatient() :
+            rowPosition = self.tableWidget.rowCount()
+            self.tableWidget.insertRow(rowPosition)
+            self.tableWidget.setItem(rowPosition, 0, QtWidgets.QTableWidgetItem(p.getName()))
+            self.tableWidget.setItem(rowPosition, 1, QtWidgets.QTableWidgetItem(p.getIpp()))
+    
+    def back(self,MainWindow):
+        """Method to go to the preious view"""
+        ui = menu.Ui_MainWindow()
+        ui.setupUi(MainWindow)
+    def prog(self,MainWindow):
+        """Method to change view to manage program of patient"""
+        ui = programme.Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     
 
     def retranslateUi(self, MainWindow):
+        """Method for the retranslation"""
         _translate = QtCore.QCoreApplication.translate
-        #MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#=====================================================================================================================
+        #MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#==================================================================
         self.label_3.setText(_translate("MainWindow", "Gestion des programmes thérapeuthiques"))
         self.pushButton_gestion.setText(_translate("MainWindow", "Gestion du programme thérapeuthique"))
         self.pushButton_res.setText(_translate("MainWindow", "Résultat du patient"))
@@ -280,7 +291,7 @@ class Ui_MainWindow(object):
 
 
 if __name__ == "__main__":
-    import sys
+    """Launch patient management view"""
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

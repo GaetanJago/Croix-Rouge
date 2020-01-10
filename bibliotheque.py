@@ -12,10 +12,18 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 #=====================================================================================================================
 import menu
 import data
-#=====================================================================================================================
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 class Ui_MainWindow(object):
+    """
+    Class to load a the library of exercices
+    """
+   
     def setupUi(self, MainWindow):
+        """
+        Setup of the class that need to be use to load the library window
+        """
         MainWindow.setObjectName("MainWindow")
         #MainWindow.resize(746, 722)#=====================================================================================================================
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -208,19 +216,25 @@ class Ui_MainWindow(object):
 
         #=====================================================================================================================
         #Affectation des boutons
-        def back(self):
-            ui = menu.Ui_MainWindow()
-            ui.setupUi(MainWindow)
-        self.pushButton_back.clicked.connect(back)
+        
+        self.pushButton_back.clicked.connect(lambda : self.back(MainWindow))
 
         #Affectation catégories
         cat = data.readAllParts()
         for part in cat:
             self.comboBox_membre.addItem(part)
-        #=====================================================================================================================
+    
+    def back(self,MainWindow):
+        """Function to go to the previous view"""
+        ui = menu.Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
     def retranslateUi(self, MainWindow):
+        """
+        Define retranslation
+        """
         _translate = QtCore.QCoreApplication.translate
         #MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#=====================================================================================================================
         self.label_3.setText(_translate("MainWindow", "Bibliothèque"))
@@ -237,6 +251,7 @@ class Ui_MainWindow(object):
 
 
 if __name__ == "__main__":
+    """Load a library view"""
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()

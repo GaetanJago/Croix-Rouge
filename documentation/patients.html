@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.2" />
+<title>patients API documentation</title>
+<meta name="description" content="" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>patients</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file &#39;patients.ui&#39;
+#
+# Created by: PyQt5 UI code generator 5.13.2
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+
+#=====================================================================================================================
+import menu
+import programme
+import data
+import sys
+from data import AppData
+from data import Patient
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+class Ui_MainWindow(object):
+    &#34;&#34;&#34;
+    Class to load patient management view
+    &#34;&#34;&#34;
+    def setupUi(self, MainWindow):
+        &#34;&#34;&#34;
+        Setup to load patient management view
+        &#34;&#34;&#34;
+        MainWindow.setObjectName(&#34;MainWindow&#34;)
+        #MainWindow.resize(904, 696)#=====================================================================================================================
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName(&#34;centralwidget&#34;)
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName(&#34;gridLayout&#34;)
+        self.all = QtWidgets.QWidget(self.centralwidget)
+        self.all.setStyleSheet(&#34;QWidget#all{border-radius: 20px;\n&#34;
+&#34;blur-raduis:5px;\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;pading:50px;\n&#34;
+&#34;}&#34;)
+        self.all.setObjectName(&#34;all&#34;)
+        self.tab = QtWidgets.QGridLayout(self.all)
+        self.tab.setContentsMargins(0, 0, 0, 20)
+        self.tab.setSpacing(0)
+        self.tab.setObjectName(&#34;tab&#34;)
+        self.head = QtWidgets.QWidget(self.all)
+        self.head.setStyleSheet(&#34;/*QWidget#head{\n&#34;
+&#34;    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(192, 192, 192, 255));\n&#34;
+&#34;    border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;border-radius: 20px;\n&#34;
+&#34;}*/&#34;)
+        self.head.setObjectName(&#34;head&#34;)
+        self.gridLayout_10 = QtWidgets.QGridLayout(self.head)
+        self.gridLayout_10.setObjectName(&#34;gridLayout_10&#34;)
+        self.label_3 = QtWidgets.QLabel(self.head)
+        self.label_3.setStyleSheet(&#34;font: 75 16pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_3.setObjectName(&#34;label_3&#34;)
+        self.gridLayout_10.addWidget(self.label_3, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.tab.addWidget(self.head, 0, 0, 1, 1)
+        self.base = QtWidgets.QWidget(self.all)
+        self.base.setStyleSheet(&#34;QWidget#base{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(108, 219, 215, 255), stop:1 rgba(78, 144, 185, 255));\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;}\n&#34;
+&#34;QPushButton{font: 12pt \&#34;MS Shell Dlg 2\&#34;;}\n&#34;
+&#34;\n&#34;
+&#34;QPushButton{\n&#34;
+&#34;background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(243, 243, 243, 255), stop:1 rgba(153, 153, 153, 255));\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 1px;\n&#34;
+&#34;border-radius: 5px;\n&#34;
+&#34;padding : 8px;\n&#34;
+&#34;}\n&#34;
+&#34;QPushButton:pressed{\n&#34;
+&#34;background-color:rgb(157, 195, 255);\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 1px;\n&#34;
+&#34;border-radius: 5px;\n&#34;
+&#34;padding : 8px;\n&#34;
+&#34;}\n&#34;
+&#34;\n&#34;
+&#34;QPushButton:hover{\n&#34;
+&#34;border-color: rgb(0, 85, 127);\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;}\n&#34;
+&#34;\n&#34;
+&#34;&#34;)
+        self.base.setObjectName(&#34;base&#34;)
+        self.gridLayout_12 = QtWidgets.QGridLayout(self.base)
+        self.gridLayout_12.setObjectName(&#34;gridLayout_12&#34;)
+        self.gridLayout_2 = QtWidgets.QGridLayout()
+        self.gridLayout_2.setObjectName(&#34;gridLayout_2&#34;)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setContentsMargins(-1, 50, -1, -1)
+        self.verticalLayout_2.setObjectName(&#34;verticalLayout_2&#34;)
+        self.pushButton_gestion = QtWidgets.QPushButton(self.base)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_gestion.sizePolicy().hasHeightForWidth())
+        self.pushButton_gestion.setSizePolicy(sizePolicy)
+        self.pushButton_gestion.setObjectName(&#34;pushButton_gestion&#34;)
+        self.verticalLayout_2.addWidget(self.pushButton_gestion, 0, QtCore.Qt.AlignHCenter)
+        self.pushButton_res = QtWidgets.QPushButton(self.base)
+        self.pushButton_res.setEnabled(False)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_res.sizePolicy().hasHeightForWidth())
+        self.pushButton_res.setSizePolicy(sizePolicy)
+        self.pushButton_res.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.pushButton_res.setObjectName(&#34;pushButton_res&#34;)
+        self.verticalLayout_2.addWidget(self.pushButton_res, 0, QtCore.Qt.AlignHCenter)
+        self.pushButton_back = QtWidgets.QPushButton(self.base)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_back.sizePolicy().hasHeightForWidth())
+        self.pushButton_back.setSizePolicy(sizePolicy)
+        self.pushButton_back.setObjectName(&#34;pushButton_back&#34;)
+        self.verticalLayout_2.addWidget(self.pushButton_back, 0, QtCore.Qt.AlignHCenter)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem)
+        self.gridLayout_2.addLayout(self.verticalLayout_2, 2, 0, 1, 1)
+        self.gridLayout_4 = QtWidgets.QGridLayout()
+        self.gridLayout_4.setContentsMargins(50, 50, 50, -1)
+        self.gridLayout_4.setObjectName(&#34;gridLayout_4&#34;)
+        self.addWidget = QtWidgets.QWidget(self.base)
+        self.addWidget.setMaximumSize(QtCore.QSize(300, 500))
+        self.addWidget.setStyleSheet(&#34;QWidget#addWidget{\n&#34;
+&#34;background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(254, 254, 254, 255), stop:1 rgba(216, 216, 216, 255));\n&#34;
+&#34;border-radius : 15px;\n&#34;
+&#34;}&#34;)
+        self.addWidget.setObjectName(&#34;addWidget&#34;)
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.addWidget)
+        self.verticalLayout_5.setContentsMargins(20, 10, 20, 10)
+        self.verticalLayout_5.setObjectName(&#34;verticalLayout_5&#34;)
+        self.label_2 = QtWidgets.QLabel(self.addWidget)
+        self.label_2.setStyleSheet(&#34;\n&#34;
+&#34;font: 14pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_2.setObjectName(&#34;label_2&#34;)
+        self.verticalLayout_5.addWidget(self.label_2, 0, QtCore.Qt.AlignHCenter)
+        self.label_4 = QtWidgets.QLabel(self.addWidget)
+        self.label_4.setStyleSheet(&#34;font: 12pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_4.setObjectName(&#34;label_4&#34;)
+        self.verticalLayout_5.addWidget(self.label_4)
+        self.lineEdit_name = QtWidgets.QLineEdit(self.addWidget)
+        self.lineEdit_name.setStyleSheet(&#34;font: 10pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.lineEdit_name.setObjectName(&#34;lineEdit_name&#34;)
+        self.verticalLayout_5.addWidget(self.lineEdit_name)
+        self.label_8 = QtWidgets.QLabel(self.addWidget)
+        self.label_8.setStyleSheet(&#34;font: 12pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_8.setObjectName(&#34;label_8&#34;)
+        self.verticalLayout_5.addWidget(self.label_8)
+        self.lineEdit_ipp = QtWidgets.QLineEdit(self.addWidget)
+        self.lineEdit_ipp.setStyleSheet(&#34;font: 10pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.lineEdit_ipp.setObjectName(&#34;lineEdit_ipp&#34;)
+        self.verticalLayout_5.addWidget(self.lineEdit_ipp)
+        self.pushButton_add = QtWidgets.QPushButton(self.addWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_add.sizePolicy().hasHeightForWidth())
+        self.pushButton_add.setSizePolicy(sizePolicy)
+        self.pushButton_add.setObjectName(&#34;pushButton_add&#34;)
+        self.verticalLayout_5.addWidget(self.pushButton_add, 0, QtCore.Qt.AlignHCenter)
+        self.gridLayout_4.addWidget(self.addWidget, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.gridLayout_4, 0, 0, 1, 1)
+        self.gridLayout_12.addLayout(self.gridLayout_2, 1, 1, 1, 1)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setContentsMargins(50, 20, 50, -1)
+        self.verticalLayout.setObjectName(&#34;verticalLayout&#34;)
+        self.label = QtWidgets.QLabel(self.base)
+        self.label.setStyleSheet(&#34;font: 75 14pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label.setObjectName(&#34;label&#34;)
+        self.verticalLayout.addWidget(self.label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.tableWidget = QtWidgets.QTableWidget(self.base)
+        self.tableWidget.setMinimumSize(QtCore.QSize(0, 500))
+        self.tableWidget.setStyleSheet(&#34;font: 75 12pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.tableWidget.setObjectName(&#34;tableWidget&#34;)
+        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(1, item)
+        self.tableWidget.horizontalHeader().setStretchLastSection(True)
+        self.verticalLayout.addWidget(self.tableWidget)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
+        self.gridLayout_12.addLayout(self.verticalLayout, 1, 0, 1, 1)
+        self.tab.addWidget(self.base, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.all, 0, 0, 1, 1)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 904, 21))
+        self.menubar.setObjectName(&#34;menubar&#34;)
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName(&#34;statusbar&#34;)
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        #=====================================================================================================================
+        #Affectation des boutons
+        
+        self.pushButton_back.clicked.connect(lambda : self.back(MainWindow))
+        self.pushButton_gestion.clicked.connect(lambda : self.prog(MainWindow))
+        self.pushButton_add.clicked.connect(lambda : self.addPatient(self.lineEdit_name.text(),self.lineEdit_ipp.text()))
+
+        #sync data dans le tableau and ajustement des tailles des colonnes
+        self.syncData()
+        header = self.tableWidget.horizontalHeader()
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+
+    def addPatient(self,name,ipp):
+        &#34;&#34;&#34;Method to add and save a new patient using the fields&#34;&#34;&#34;
+        #Confirmation message
+        qm = QtWidgets.QMessageBox()
+        reply = qm.question(MainWindow, &#39;Continuer ?&#39;,&#39;Voulez vraiment ajouter &#39; + name + &#34;(&#34; + ipp + &#34;) ?&#34;, qm.Yes, qm.No)
+        if reply == qm.Yes:
+            new = data.deserialize()
+            new.getListPatient().append(Patient(name , ipp))
+            data.seralize(new)
+            self.syncData()
+
+            #Clear fields
+            self.lineEdit_name.setText(&#34;&#34;)
+            self.lineEdit_ipp.setText(&#34;&#34;)
+    
+    def syncData(self):
+        &#34;&#34;&#34;Sync tabView with patients data&#34;&#34;&#34;
+        self.tableWidget.setRowCount(0) #clean before
+        d = data.deserialize()
+        i = 0
+        for p in d.getListPatient() :
+            rowPosition = self.tableWidget.rowCount()
+            self.tableWidget.insertRow(rowPosition)
+            self.tableWidget.setItem(rowPosition, 0, QtWidgets.QTableWidgetItem(p.getName()))
+            self.tableWidget.setItem(rowPosition, 1, QtWidgets.QTableWidgetItem(p.getIpp()))
+    
+    def back(self,MainWindow):
+        &#34;&#34;&#34;Method to go to the preious view&#34;&#34;&#34;
+        ui = menu.Ui_MainWindow()
+        ui.setupUi(MainWindow)
+    def prog(self,MainWindow):
+        &#34;&#34;&#34;Method to change view to manage program of patient&#34;&#34;&#34;
+        ui = programme.Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    
+
+    def retranslateUi(self, MainWindow):
+        &#34;&#34;&#34;Method for the retranslation&#34;&#34;&#34;
+        _translate = QtCore.QCoreApplication.translate
+        #MainWindow.setWindowTitle(_translate(&#34;MainWindow&#34;, &#34;MainWindow&#34;))#==================================================================
+        self.label_3.setText(_translate(&#34;MainWindow&#34;, &#34;Gestion des programmes thérapeuthiques&#34;))
+        self.pushButton_gestion.setText(_translate(&#34;MainWindow&#34;, &#34;Gestion du programme thérapeuthique&#34;))
+        self.pushButton_res.setText(_translate(&#34;MainWindow&#34;, &#34;Résultat du patient&#34;))
+        self.pushButton_back.setText(_translate(&#34;MainWindow&#34;, &#34;Retour Menu&#34;))
+        self.label_2.setText(_translate(&#34;MainWindow&#34;, &#34;Ajouter un patient&#34;))
+        self.label_4.setText(_translate(&#34;MainWindow&#34;, &#34;Nom&#34;))
+        self.label_8.setText(_translate(&#34;MainWindow&#34;, &#34;Numéro IPP&#34;))
+        self.pushButton_add.setText(_translate(&#34;MainWindow&#34;, &#34;Ajouter&#34;))
+        self.label.setText(_translate(&#34;MainWindow&#34;, &#34;Choisir un patient&#34;))
+        item = self.tableWidget.horizontalHeaderItem(0)
+        item.setText(_translate(&#34;MainWindow&#34;, &#34;Nom&#34;))
+        item = self.tableWidget.horizontalHeaderItem(1)
+        item.setText(_translate(&#34;MainWindow&#34;, &#34;Numéro IPP&#34;))
+
+
+if __name__ == &#34;__main__&#34;:
+    &#34;&#34;&#34;Launch patient management view&#34;&#34;&#34;
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="patients.Ui_MainWindow"><code class="flex name class">
+<span>class <span class="ident">Ui_MainWindow</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Class to load patient management view</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Ui_MainWindow(object):
+    &#34;&#34;&#34;
+    Class to load patient management view
+    &#34;&#34;&#34;
+    def setupUi(self, MainWindow):
+        &#34;&#34;&#34;
+        Setup to load patient management view
+        &#34;&#34;&#34;
+        MainWindow.setObjectName(&#34;MainWindow&#34;)
+        #MainWindow.resize(904, 696)#=====================================================================================================================
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName(&#34;centralwidget&#34;)
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName(&#34;gridLayout&#34;)
+        self.all = QtWidgets.QWidget(self.centralwidget)
+        self.all.setStyleSheet(&#34;QWidget#all{border-radius: 20px;\n&#34;
+&#34;blur-raduis:5px;\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;pading:50px;\n&#34;
+&#34;}&#34;)
+        self.all.setObjectName(&#34;all&#34;)
+        self.tab = QtWidgets.QGridLayout(self.all)
+        self.tab.setContentsMargins(0, 0, 0, 20)
+        self.tab.setSpacing(0)
+        self.tab.setObjectName(&#34;tab&#34;)
+        self.head = QtWidgets.QWidget(self.all)
+        self.head.setStyleSheet(&#34;/*QWidget#head{\n&#34;
+&#34;    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(192, 192, 192, 255));\n&#34;
+&#34;    border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;border-radius: 20px;\n&#34;
+&#34;}*/&#34;)
+        self.head.setObjectName(&#34;head&#34;)
+        self.gridLayout_10 = QtWidgets.QGridLayout(self.head)
+        self.gridLayout_10.setObjectName(&#34;gridLayout_10&#34;)
+        self.label_3 = QtWidgets.QLabel(self.head)
+        self.label_3.setStyleSheet(&#34;font: 75 16pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_3.setObjectName(&#34;label_3&#34;)
+        self.gridLayout_10.addWidget(self.label_3, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.tab.addWidget(self.head, 0, 0, 1, 1)
+        self.base = QtWidgets.QWidget(self.all)
+        self.base.setStyleSheet(&#34;QWidget#base{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(108, 219, 215, 255), stop:1 rgba(78, 144, 185, 255));\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;}\n&#34;
+&#34;QPushButton{font: 12pt \&#34;MS Shell Dlg 2\&#34;;}\n&#34;
+&#34;\n&#34;
+&#34;QPushButton{\n&#34;
+&#34;background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(243, 243, 243, 255), stop:1 rgba(153, 153, 153, 255));\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 1px;\n&#34;
+&#34;border-radius: 5px;\n&#34;
+&#34;padding : 8px;\n&#34;
+&#34;}\n&#34;
+&#34;QPushButton:pressed{\n&#34;
+&#34;background-color:rgb(157, 195, 255);\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 1px;\n&#34;
+&#34;border-radius: 5px;\n&#34;
+&#34;padding : 8px;\n&#34;
+&#34;}\n&#34;
+&#34;\n&#34;
+&#34;QPushButton:hover{\n&#34;
+&#34;border-color: rgb(0, 85, 127);\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;}\n&#34;
+&#34;\n&#34;
+&#34;&#34;)
+        self.base.setObjectName(&#34;base&#34;)
+        self.gridLayout_12 = QtWidgets.QGridLayout(self.base)
+        self.gridLayout_12.setObjectName(&#34;gridLayout_12&#34;)
+        self.gridLayout_2 = QtWidgets.QGridLayout()
+        self.gridLayout_2.setObjectName(&#34;gridLayout_2&#34;)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setContentsMargins(-1, 50, -1, -1)
+        self.verticalLayout_2.setObjectName(&#34;verticalLayout_2&#34;)
+        self.pushButton_gestion = QtWidgets.QPushButton(self.base)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_gestion.sizePolicy().hasHeightForWidth())
+        self.pushButton_gestion.setSizePolicy(sizePolicy)
+        self.pushButton_gestion.setObjectName(&#34;pushButton_gestion&#34;)
+        self.verticalLayout_2.addWidget(self.pushButton_gestion, 0, QtCore.Qt.AlignHCenter)
+        self.pushButton_res = QtWidgets.QPushButton(self.base)
+        self.pushButton_res.setEnabled(False)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_res.sizePolicy().hasHeightForWidth())
+        self.pushButton_res.setSizePolicy(sizePolicy)
+        self.pushButton_res.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.pushButton_res.setObjectName(&#34;pushButton_res&#34;)
+        self.verticalLayout_2.addWidget(self.pushButton_res, 0, QtCore.Qt.AlignHCenter)
+        self.pushButton_back = QtWidgets.QPushButton(self.base)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_back.sizePolicy().hasHeightForWidth())
+        self.pushButton_back.setSizePolicy(sizePolicy)
+        self.pushButton_back.setObjectName(&#34;pushButton_back&#34;)
+        self.verticalLayout_2.addWidget(self.pushButton_back, 0, QtCore.Qt.AlignHCenter)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem)
+        self.gridLayout_2.addLayout(self.verticalLayout_2, 2, 0, 1, 1)
+        self.gridLayout_4 = QtWidgets.QGridLayout()
+        self.gridLayout_4.setContentsMargins(50, 50, 50, -1)
+        self.gridLayout_4.setObjectName(&#34;gridLayout_4&#34;)
+        self.addWidget = QtWidgets.QWidget(self.base)
+        self.addWidget.setMaximumSize(QtCore.QSize(300, 500))
+        self.addWidget.setStyleSheet(&#34;QWidget#addWidget{\n&#34;
+&#34;background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(254, 254, 254, 255), stop:1 rgba(216, 216, 216, 255));\n&#34;
+&#34;border-radius : 15px;\n&#34;
+&#34;}&#34;)
+        self.addWidget.setObjectName(&#34;addWidget&#34;)
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.addWidget)
+        self.verticalLayout_5.setContentsMargins(20, 10, 20, 10)
+        self.verticalLayout_5.setObjectName(&#34;verticalLayout_5&#34;)
+        self.label_2 = QtWidgets.QLabel(self.addWidget)
+        self.label_2.setStyleSheet(&#34;\n&#34;
+&#34;font: 14pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_2.setObjectName(&#34;label_2&#34;)
+        self.verticalLayout_5.addWidget(self.label_2, 0, QtCore.Qt.AlignHCenter)
+        self.label_4 = QtWidgets.QLabel(self.addWidget)
+        self.label_4.setStyleSheet(&#34;font: 12pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_4.setObjectName(&#34;label_4&#34;)
+        self.verticalLayout_5.addWidget(self.label_4)
+        self.lineEdit_name = QtWidgets.QLineEdit(self.addWidget)
+        self.lineEdit_name.setStyleSheet(&#34;font: 10pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.lineEdit_name.setObjectName(&#34;lineEdit_name&#34;)
+        self.verticalLayout_5.addWidget(self.lineEdit_name)
+        self.label_8 = QtWidgets.QLabel(self.addWidget)
+        self.label_8.setStyleSheet(&#34;font: 12pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_8.setObjectName(&#34;label_8&#34;)
+        self.verticalLayout_5.addWidget(self.label_8)
+        self.lineEdit_ipp = QtWidgets.QLineEdit(self.addWidget)
+        self.lineEdit_ipp.setStyleSheet(&#34;font: 10pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.lineEdit_ipp.setObjectName(&#34;lineEdit_ipp&#34;)
+        self.verticalLayout_5.addWidget(self.lineEdit_ipp)
+        self.pushButton_add = QtWidgets.QPushButton(self.addWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_add.sizePolicy().hasHeightForWidth())
+        self.pushButton_add.setSizePolicy(sizePolicy)
+        self.pushButton_add.setObjectName(&#34;pushButton_add&#34;)
+        self.verticalLayout_5.addWidget(self.pushButton_add, 0, QtCore.Qt.AlignHCenter)
+        self.gridLayout_4.addWidget(self.addWidget, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.gridLayout_4, 0, 0, 1, 1)
+        self.gridLayout_12.addLayout(self.gridLayout_2, 1, 1, 1, 1)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setContentsMargins(50, 20, 50, -1)
+        self.verticalLayout.setObjectName(&#34;verticalLayout&#34;)
+        self.label = QtWidgets.QLabel(self.base)
+        self.label.setStyleSheet(&#34;font: 75 14pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label.setObjectName(&#34;label&#34;)
+        self.verticalLayout.addWidget(self.label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.tableWidget = QtWidgets.QTableWidget(self.base)
+        self.tableWidget.setMinimumSize(QtCore.QSize(0, 500))
+        self.tableWidget.setStyleSheet(&#34;font: 75 12pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.tableWidget.setObjectName(&#34;tableWidget&#34;)
+        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(1, item)
+        self.tableWidget.horizontalHeader().setStretchLastSection(True)
+        self.verticalLayout.addWidget(self.tableWidget)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
+        self.gridLayout_12.addLayout(self.verticalLayout, 1, 0, 1, 1)
+        self.tab.addWidget(self.base, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.all, 0, 0, 1, 1)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 904, 21))
+        self.menubar.setObjectName(&#34;menubar&#34;)
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName(&#34;statusbar&#34;)
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        #=====================================================================================================================
+        #Affectation des boutons
+        
+        self.pushButton_back.clicked.connect(lambda : self.back(MainWindow))
+        self.pushButton_gestion.clicked.connect(lambda : self.prog(MainWindow))
+        self.pushButton_add.clicked.connect(lambda : self.addPatient(self.lineEdit_name.text(),self.lineEdit_ipp.text()))
+
+        #sync data dans le tableau and ajustement des tailles des colonnes
+        self.syncData()
+        header = self.tableWidget.horizontalHeader()
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+
+    def addPatient(self,name,ipp):
+        &#34;&#34;&#34;Method to add and save a new patient using the fields&#34;&#34;&#34;
+        #Confirmation message
+        qm = QtWidgets.QMessageBox()
+        reply = qm.question(MainWindow, &#39;Continuer ?&#39;,&#39;Voulez vraiment ajouter &#39; + name + &#34;(&#34; + ipp + &#34;) ?&#34;, qm.Yes, qm.No)
+        if reply == qm.Yes:
+            new = data.deserialize()
+            new.getListPatient().append(Patient(name , ipp))
+            data.seralize(new)
+            self.syncData()
+
+            #Clear fields
+            self.lineEdit_name.setText(&#34;&#34;)
+            self.lineEdit_ipp.setText(&#34;&#34;)
+    
+    def syncData(self):
+        &#34;&#34;&#34;Sync tabView with patients data&#34;&#34;&#34;
+        self.tableWidget.setRowCount(0) #clean before
+        d = data.deserialize()
+        i = 0
+        for p in d.getListPatient() :
+            rowPosition = self.tableWidget.rowCount()
+            self.tableWidget.insertRow(rowPosition)
+            self.tableWidget.setItem(rowPosition, 0, QtWidgets.QTableWidgetItem(p.getName()))
+            self.tableWidget.setItem(rowPosition, 1, QtWidgets.QTableWidgetItem(p.getIpp()))
+    
+    def back(self,MainWindow):
+        &#34;&#34;&#34;Method to go to the preious view&#34;&#34;&#34;
+        ui = menu.Ui_MainWindow()
+        ui.setupUi(MainWindow)
+    def prog(self,MainWindow):
+        &#34;&#34;&#34;Method to change view to manage program of patient&#34;&#34;&#34;
+        ui = programme.Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    
+
+    def retranslateUi(self, MainWindow):
+        &#34;&#34;&#34;Method for the retranslation&#34;&#34;&#34;
+        _translate = QtCore.QCoreApplication.translate
+        #MainWindow.setWindowTitle(_translate(&#34;MainWindow&#34;, &#34;MainWindow&#34;))#==================================================================
+        self.label_3.setText(_translate(&#34;MainWindow&#34;, &#34;Gestion des programmes thérapeuthiques&#34;))
+        self.pushButton_gestion.setText(_translate(&#34;MainWindow&#34;, &#34;Gestion du programme thérapeuthique&#34;))
+        self.pushButton_res.setText(_translate(&#34;MainWindow&#34;, &#34;Résultat du patient&#34;))
+        self.pushButton_back.setText(_translate(&#34;MainWindow&#34;, &#34;Retour Menu&#34;))
+        self.label_2.setText(_translate(&#34;MainWindow&#34;, &#34;Ajouter un patient&#34;))
+        self.label_4.setText(_translate(&#34;MainWindow&#34;, &#34;Nom&#34;))
+        self.label_8.setText(_translate(&#34;MainWindow&#34;, &#34;Numéro IPP&#34;))
+        self.pushButton_add.setText(_translate(&#34;MainWindow&#34;, &#34;Ajouter&#34;))
+        self.label.setText(_translate(&#34;MainWindow&#34;, &#34;Choisir un patient&#34;))
+        item = self.tableWidget.horizontalHeaderItem(0)
+        item.setText(_translate(&#34;MainWindow&#34;, &#34;Nom&#34;))
+        item = self.tableWidget.horizontalHeaderItem(1)
+        item.setText(_translate(&#34;MainWindow&#34;, &#34;Numéro IPP&#34;))</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="patients.Ui_MainWindow.addPatient"><code class="name flex">
+<span>def <span class="ident">addPatient</span></span>(<span>self, name, ipp)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Method to add and save a new patient using the fields</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addPatient(self,name,ipp):
+    &#34;&#34;&#34;Method to add and save a new patient using the fields&#34;&#34;&#34;
+    #Confirmation message
+    qm = QtWidgets.QMessageBox()
+    reply = qm.question(MainWindow, &#39;Continuer ?&#39;,&#39;Voulez vraiment ajouter &#39; + name + &#34;(&#34; + ipp + &#34;) ?&#34;, qm.Yes, qm.No)
+    if reply == qm.Yes:
+        new = data.deserialize()
+        new.getListPatient().append(Patient(name , ipp))
+        data.seralize(new)
+        self.syncData()
+
+        #Clear fields
+        self.lineEdit_name.setText(&#34;&#34;)
+        self.lineEdit_ipp.setText(&#34;&#34;)</code></pre>
+</details>
+</dd>
+<dt id="patients.Ui_MainWindow.back"><code class="name flex">
+<span>def <span class="ident">back</span></span>(<span>self, MainWindow)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Method to go to the preious view</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def back(self,MainWindow):
+    &#34;&#34;&#34;Method to go to the preious view&#34;&#34;&#34;
+    ui = menu.Ui_MainWindow()
+    ui.setupUi(MainWindow)</code></pre>
+</details>
+</dd>
+<dt id="patients.Ui_MainWindow.prog"><code class="name flex">
+<span>def <span class="ident">prog</span></span>(<span>self, MainWindow)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Method to change view to manage program of patient</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def prog(self,MainWindow):
+    &#34;&#34;&#34;Method to change view to manage program of patient&#34;&#34;&#34;
+    ui = programme.Ui_MainWindow()
+    ui.setupUi(MainWindow)</code></pre>
+</details>
+</dd>
+<dt id="patients.Ui_MainWindow.retranslateUi"><code class="name flex">
+<span>def <span class="ident">retranslateUi</span></span>(<span>self, MainWindow)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Method for the retranslation</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retranslateUi(self, MainWindow):
+    &#34;&#34;&#34;Method for the retranslation&#34;&#34;&#34;
+    _translate = QtCore.QCoreApplication.translate
+    #MainWindow.setWindowTitle(_translate(&#34;MainWindow&#34;, &#34;MainWindow&#34;))#==================================================================
+    self.label_3.setText(_translate(&#34;MainWindow&#34;, &#34;Gestion des programmes thérapeuthiques&#34;))
+    self.pushButton_gestion.setText(_translate(&#34;MainWindow&#34;, &#34;Gestion du programme thérapeuthique&#34;))
+    self.pushButton_res.setText(_translate(&#34;MainWindow&#34;, &#34;Résultat du patient&#34;))
+    self.pushButton_back.setText(_translate(&#34;MainWindow&#34;, &#34;Retour Menu&#34;))
+    self.label_2.setText(_translate(&#34;MainWindow&#34;, &#34;Ajouter un patient&#34;))
+    self.label_4.setText(_translate(&#34;MainWindow&#34;, &#34;Nom&#34;))
+    self.label_8.setText(_translate(&#34;MainWindow&#34;, &#34;Numéro IPP&#34;))
+    self.pushButton_add.setText(_translate(&#34;MainWindow&#34;, &#34;Ajouter&#34;))
+    self.label.setText(_translate(&#34;MainWindow&#34;, &#34;Choisir un patient&#34;))
+    item = self.tableWidget.horizontalHeaderItem(0)
+    item.setText(_translate(&#34;MainWindow&#34;, &#34;Nom&#34;))
+    item = self.tableWidget.horizontalHeaderItem(1)
+    item.setText(_translate(&#34;MainWindow&#34;, &#34;Numéro IPP&#34;))</code></pre>
+</details>
+</dd>
+<dt id="patients.Ui_MainWindow.setupUi"><code class="name flex">
+<span>def <span class="ident">setupUi</span></span>(<span>self, MainWindow)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Setup to load patient management view</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">    def setupUi(self, MainWindow):
+        &#34;&#34;&#34;
+        Setup to load patient management view
+        &#34;&#34;&#34;
+        MainWindow.setObjectName(&#34;MainWindow&#34;)
+        #MainWindow.resize(904, 696)#=====================================================================================================================
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName(&#34;centralwidget&#34;)
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName(&#34;gridLayout&#34;)
+        self.all = QtWidgets.QWidget(self.centralwidget)
+        self.all.setStyleSheet(&#34;QWidget#all{border-radius: 20px;\n&#34;
+&#34;blur-raduis:5px;\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;pading:50px;\n&#34;
+&#34;}&#34;)
+        self.all.setObjectName(&#34;all&#34;)
+        self.tab = QtWidgets.QGridLayout(self.all)
+        self.tab.setContentsMargins(0, 0, 0, 20)
+        self.tab.setSpacing(0)
+        self.tab.setObjectName(&#34;tab&#34;)
+        self.head = QtWidgets.QWidget(self.all)
+        self.head.setStyleSheet(&#34;/*QWidget#head{\n&#34;
+&#34;    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(192, 192, 192, 255));\n&#34;
+&#34;    border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;border-radius: 20px;\n&#34;
+&#34;}*/&#34;)
+        self.head.setObjectName(&#34;head&#34;)
+        self.gridLayout_10 = QtWidgets.QGridLayout(self.head)
+        self.gridLayout_10.setObjectName(&#34;gridLayout_10&#34;)
+        self.label_3 = QtWidgets.QLabel(self.head)
+        self.label_3.setStyleSheet(&#34;font: 75 16pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_3.setObjectName(&#34;label_3&#34;)
+        self.gridLayout_10.addWidget(self.label_3, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.tab.addWidget(self.head, 0, 0, 1, 1)
+        self.base = QtWidgets.QWidget(self.all)
+        self.base.setStyleSheet(&#34;QWidget#base{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(108, 219, 215, 255), stop:1 rgba(78, 144, 185, 255));\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;}\n&#34;
+&#34;QPushButton{font: 12pt \&#34;MS Shell Dlg 2\&#34;;}\n&#34;
+&#34;\n&#34;
+&#34;QPushButton{\n&#34;
+&#34;background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(243, 243, 243, 255), stop:1 rgba(153, 153, 153, 255));\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 1px;\n&#34;
+&#34;border-radius: 5px;\n&#34;
+&#34;padding : 8px;\n&#34;
+&#34;}\n&#34;
+&#34;QPushButton:pressed{\n&#34;
+&#34;background-color:rgb(157, 195, 255);\n&#34;
+&#34;border-style: solid;\n&#34;
+&#34;border-color: black;\n&#34;
+&#34;border-width: 1px;\n&#34;
+&#34;border-radius: 5px;\n&#34;
+&#34;padding : 8px;\n&#34;
+&#34;}\n&#34;
+&#34;\n&#34;
+&#34;QPushButton:hover{\n&#34;
+&#34;border-color: rgb(0, 85, 127);\n&#34;
+&#34;border-width: 2px;\n&#34;
+&#34;}\n&#34;
+&#34;\n&#34;
+&#34;&#34;)
+        self.base.setObjectName(&#34;base&#34;)
+        self.gridLayout_12 = QtWidgets.QGridLayout(self.base)
+        self.gridLayout_12.setObjectName(&#34;gridLayout_12&#34;)
+        self.gridLayout_2 = QtWidgets.QGridLayout()
+        self.gridLayout_2.setObjectName(&#34;gridLayout_2&#34;)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setContentsMargins(-1, 50, -1, -1)
+        self.verticalLayout_2.setObjectName(&#34;verticalLayout_2&#34;)
+        self.pushButton_gestion = QtWidgets.QPushButton(self.base)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_gestion.sizePolicy().hasHeightForWidth())
+        self.pushButton_gestion.setSizePolicy(sizePolicy)
+        self.pushButton_gestion.setObjectName(&#34;pushButton_gestion&#34;)
+        self.verticalLayout_2.addWidget(self.pushButton_gestion, 0, QtCore.Qt.AlignHCenter)
+        self.pushButton_res = QtWidgets.QPushButton(self.base)
+        self.pushButton_res.setEnabled(False)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_res.sizePolicy().hasHeightForWidth())
+        self.pushButton_res.setSizePolicy(sizePolicy)
+        self.pushButton_res.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.pushButton_res.setObjectName(&#34;pushButton_res&#34;)
+        self.verticalLayout_2.addWidget(self.pushButton_res, 0, QtCore.Qt.AlignHCenter)
+        self.pushButton_back = QtWidgets.QPushButton(self.base)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_back.sizePolicy().hasHeightForWidth())
+        self.pushButton_back.setSizePolicy(sizePolicy)
+        self.pushButton_back.setObjectName(&#34;pushButton_back&#34;)
+        self.verticalLayout_2.addWidget(self.pushButton_back, 0, QtCore.Qt.AlignHCenter)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem)
+        self.gridLayout_2.addLayout(self.verticalLayout_2, 2, 0, 1, 1)
+        self.gridLayout_4 = QtWidgets.QGridLayout()
+        self.gridLayout_4.setContentsMargins(50, 50, 50, -1)
+        self.gridLayout_4.setObjectName(&#34;gridLayout_4&#34;)
+        self.addWidget = QtWidgets.QWidget(self.base)
+        self.addWidget.setMaximumSize(QtCore.QSize(300, 500))
+        self.addWidget.setStyleSheet(&#34;QWidget#addWidget{\n&#34;
+&#34;background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(254, 254, 254, 255), stop:1 rgba(216, 216, 216, 255));\n&#34;
+&#34;border-radius : 15px;\n&#34;
+&#34;}&#34;)
+        self.addWidget.setObjectName(&#34;addWidget&#34;)
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.addWidget)
+        self.verticalLayout_5.setContentsMargins(20, 10, 20, 10)
+        self.verticalLayout_5.setObjectName(&#34;verticalLayout_5&#34;)
+        self.label_2 = QtWidgets.QLabel(self.addWidget)
+        self.label_2.setStyleSheet(&#34;\n&#34;
+&#34;font: 14pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_2.setObjectName(&#34;label_2&#34;)
+        self.verticalLayout_5.addWidget(self.label_2, 0, QtCore.Qt.AlignHCenter)
+        self.label_4 = QtWidgets.QLabel(self.addWidget)
+        self.label_4.setStyleSheet(&#34;font: 12pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_4.setObjectName(&#34;label_4&#34;)
+        self.verticalLayout_5.addWidget(self.label_4)
+        self.lineEdit_name = QtWidgets.QLineEdit(self.addWidget)
+        self.lineEdit_name.setStyleSheet(&#34;font: 10pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.lineEdit_name.setObjectName(&#34;lineEdit_name&#34;)
+        self.verticalLayout_5.addWidget(self.lineEdit_name)
+        self.label_8 = QtWidgets.QLabel(self.addWidget)
+        self.label_8.setStyleSheet(&#34;font: 12pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label_8.setObjectName(&#34;label_8&#34;)
+        self.verticalLayout_5.addWidget(self.label_8)
+        self.lineEdit_ipp = QtWidgets.QLineEdit(self.addWidget)
+        self.lineEdit_ipp.setStyleSheet(&#34;font: 10pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.lineEdit_ipp.setObjectName(&#34;lineEdit_ipp&#34;)
+        self.verticalLayout_5.addWidget(self.lineEdit_ipp)
+        self.pushButton_add = QtWidgets.QPushButton(self.addWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_add.sizePolicy().hasHeightForWidth())
+        self.pushButton_add.setSizePolicy(sizePolicy)
+        self.pushButton_add.setObjectName(&#34;pushButton_add&#34;)
+        self.verticalLayout_5.addWidget(self.pushButton_add, 0, QtCore.Qt.AlignHCenter)
+        self.gridLayout_4.addWidget(self.addWidget, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.gridLayout_4, 0, 0, 1, 1)
+        self.gridLayout_12.addLayout(self.gridLayout_2, 1, 1, 1, 1)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setContentsMargins(50, 20, 50, -1)
+        self.verticalLayout.setObjectName(&#34;verticalLayout&#34;)
+        self.label = QtWidgets.QLabel(self.base)
+        self.label.setStyleSheet(&#34;font: 75 14pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.label.setObjectName(&#34;label&#34;)
+        self.verticalLayout.addWidget(self.label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.tableWidget = QtWidgets.QTableWidget(self.base)
+        self.tableWidget.setMinimumSize(QtCore.QSize(0, 500))
+        self.tableWidget.setStyleSheet(&#34;font: 75 12pt \&#34;MS Shell Dlg 2\&#34;;&#34;)
+        self.tableWidget.setObjectName(&#34;tableWidget&#34;)
+        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(1, item)
+        self.tableWidget.horizontalHeader().setStretchLastSection(True)
+        self.verticalLayout.addWidget(self.tableWidget)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
+        self.gridLayout_12.addLayout(self.verticalLayout, 1, 0, 1, 1)
+        self.tab.addWidget(self.base, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.all, 0, 0, 1, 1)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 904, 21))
+        self.menubar.setObjectName(&#34;menubar&#34;)
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName(&#34;statusbar&#34;)
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        #=====================================================================================================================
+        #Affectation des boutons
+        
+        self.pushButton_back.clicked.connect(lambda : self.back(MainWindow))
+        self.pushButton_gestion.clicked.connect(lambda : self.prog(MainWindow))
+        self.pushButton_add.clicked.connect(lambda : self.addPatient(self.lineEdit_name.text(),self.lineEdit_ipp.text()))
+
+        #sync data dans le tableau and ajustement des tailles des colonnes
+        self.syncData()
+        header = self.tableWidget.horizontalHeader()
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)</code></pre>
+</details>
+</dd>
+<dt id="patients.Ui_MainWindow.syncData"><code class="name flex">
+<span>def <span class="ident">syncData</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Sync tabView with patients data</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def syncData(self):
+    &#34;&#34;&#34;Sync tabView with patients data&#34;&#34;&#34;
+    self.tableWidget.setRowCount(0) #clean before
+    d = data.deserialize()
+    i = 0
+    for p in d.getListPatient() :
+        rowPosition = self.tableWidget.rowCount()
+        self.tableWidget.insertRow(rowPosition)
+        self.tableWidget.setItem(rowPosition, 0, QtWidgets.QTableWidgetItem(p.getName()))
+        self.tableWidget.setItem(rowPosition, 1, QtWidgets.QTableWidgetItem(p.getIpp()))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="patients.Ui_MainWindow" href="#patients.Ui_MainWindow">Ui_MainWindow</a></code></h4>
+<ul class="two-column">
+<li><code><a title="patients.Ui_MainWindow.addPatient" href="#patients.Ui_MainWindow.addPatient">addPatient</a></code></li>
+<li><code><a title="patients.Ui_MainWindow.back" href="#patients.Ui_MainWindow.back">back</a></code></li>
+<li><code><a title="patients.Ui_MainWindow.prog" href="#patients.Ui_MainWindow.prog">prog</a></code></li>
+<li><code><a title="patients.Ui_MainWindow.retranslateUi" href="#patients.Ui_MainWindow.retranslateUi">retranslateUi</a></code></li>
+<li><code><a title="patients.Ui_MainWindow.setupUi" href="#patients.Ui_MainWindow.setupUi">setupUi</a></code></li>
+<li><code><a title="patients.Ui_MainWindow.syncData" href="#patients.Ui_MainWindow.syncData">syncData</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.2</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

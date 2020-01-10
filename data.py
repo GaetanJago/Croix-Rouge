@@ -2,11 +2,13 @@
 import os
 import pickle
 
-"""
-Class dedicated to save exercices
-"""
+
 class Exercice(object):
+    """
+    Class dedicated to save exercices
+    """
     def __init__(self,name,memberList,description,videoPath):
+        """Constructor of exercice class"""
         self.name = name
         self.memberList = memberList
         self.description = description
@@ -36,11 +38,13 @@ class Exercice(object):
     def setVideoPath(self,path):
         self.videoPath = path
 
-"""
-Class dedicated to save Patients
-"""
+
 class Patient(object):
+    """
+    Class dedicated to save Patients
+    """
     def __init__(self,name,ipp):
+        """Constructor of patient class"""
         self.ipp = ipp
         self.name = name
     def getName(self):
@@ -52,11 +56,13 @@ class Patient(object):
     def setIPP(self,ipp):
         self.ipp = ipp
 
-"""
-Class dedicated to save Programms of patients
-"""
+
 class Program(object):
+    """
+    Class dedicated to save Programms of patients
+    """
     def __init__(self,listExercice,patient):
+        """Constructor of program class"""
         self.listExercice = listExercice
         self.patient = patient
     def getListExercice(self):
@@ -70,15 +76,17 @@ class Program(object):
     def setPatient(self,patient):
         self.patient = patient
 
-"""
-Class dedicated to save all patients, all programs and all exercice
-"""
+
 class AppData(object):
+    """
+    Class dedicated to save all patients, all programs and all exercice
+    """
     def __init__(self,bibliotheque,listPatient,listProgram):
+        """Constructor of appdata classe"""
         self.bibliotheque = bibliotheque
         self.listPatient = listPatient
         self.listProgram = listProgram
-        self.listParts = readAllParts()
+
     def getBibliotheque(self):
         return self.bibliotheque
     def getListPatient(self):
@@ -88,56 +96,60 @@ class AppData(object):
 
     def setBibliotheque(self,bibliotheque):
         self.bibliotheque = bibliotheque
-    
     def setListPatient(self,list):
         self.listPatient = list
-
     def setListProgram(self,list):
         self.listProgram = list
 
-"""
-Parser of categories.txt file
-"""
-def readAllParts():
+
+def readAllParts(file = 'categories.txt'):
+    """
+    Parser of categories
+    """
     parts = []
     
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-    my_file = os.path.join(THIS_FOLDER, 'categories.txt')
+    my_file = os.path.join(THIS_FOLDER, file )
     fp = open(my_file)
     line = fp.readline()
     while line != '':  # The EOF char is an empty string
         line = line.rstrip() #skip \n
-        if(line[0] != '-'):
+        if(line[0] != '-'):#if "-" is read, it's a main part
             parts.append(line)
         line = fp.readline()
     fp.close()
     return parts
 
-"""
-Serialize class data in data.dat file
-"""
-def seralize(obj):
+
+def seralize(obj,file = 'data.dat'):
+    """
+    Serialize class appData in data.dat file
+    """
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
     my_file = os.path.join(THIS_FOLDER, 'data')
-    my_file = os.path.join(my_file, 'data.dat')
+    my_file = os.path.join(my_file, file)
     fp = open(my_file,'wb')
     pickle.dump(obj, fp)
     fp.close()
 
 
-"""
-Deserialize class data in data.dat file
-"""
-def deserialize():
+
+def deserialize(file = 'data.dat'):
+    """
+    Deserialize class appData in data.dat file
+    """
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
     my_file = os.path.join(THIS_FOLDER, 'data')
-    my_file = os.path.join(my_file, 'data.dat')
+    my_file = os.path.join(my_file, file)
     fp = open(my_file,'rb')
     obj = pickle.load(fp)
     fp.close()
     return obj
 
 def initEmptyData():
+    """
+    Function to clear all data previously serialized
+    """
     biblioteque = []
     patients = []
     program = []
@@ -147,5 +159,5 @@ def initEmptyData():
 
 if __name__ == "__main__":
     print("main launched")
-    initEmptyData()
+    #initEmptyData()
     pass

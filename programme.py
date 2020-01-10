@@ -12,10 +12,17 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 #=====================================================================================================================
 import patients
 import data
-#=====================================================================================================================
+import sys
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 class Ui_MainWindow(object):
+	"""
+    Class to load Program management view
+    """
 	def setupUi(self, MainWindow):
+		"""
+        Setup to load Program management view
+        """
 		MainWindow.setObjectName("MainWindow")
 		#MainWindow.resize(720, 696)#=====================================================================================================================
 		self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -210,22 +217,30 @@ class Ui_MainWindow(object):
 
 		#=====================================================================================================================
 		#Affectation des boutons
-		def back(self):
-			ui = patients.Ui_MainWindow()
-			ui.setupUi(MainWindow)
-		self.pushButton_save.clicked.connect(back)
-		self.pushButton_cancel.clicked.connect(back)
+		self.pushButton_save.clicked.connect(lambda : self.back(MainWindow))
+		self.pushButton_cancel.clicked.connect(lambda : self.back(MainWindow))
 
 		#Affectation des categories
 		cat = data.readAllParts()
 		for part in cat:
 			self.comboBox_part.addItem(part)
-						
-		#=====================================================================================================================
+
+		#adjust column size
+		header = self.tableWidget_prog.horizontalHeader()
+		header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+		header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+		header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
+
+	def back(self,MainWindow):
+		"""Method to go to the preious view"""
+		ui = patients.Ui_MainWindow()
+		ui.setupUi(MainWindow)		
+		#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	def retranslateUi(self, MainWindow):
+		"""Method for the retranslation"""
 		_translate = QtCore.QCoreApplication.translate
-		#MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#=====================================================================================================================
+		#MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#==============================================
 		self.label_3.setText(_translate("MainWindow", "Gestion des programmes thérapeuthiques"))
 		self.pushButton_cancel.setText(_translate("MainWindow", "Annuler"))
 		self.pushButton_save.setText(_translate("MainWindow", "Sauvegarder"))
@@ -247,10 +262,10 @@ class Ui_MainWindow(object):
 
 
 if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+	"""Launch program management view"""
+	app = QtWidgets.QApplication(sys.argv)
+	MainWindow = QtWidgets.QMainWindow()
+	ui = Ui_MainWindow()
+	ui.setupUi(MainWindow)
+	MainWindow.show()
+	sys.exit(app.exec_())

@@ -10,18 +10,28 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 #=====================================================================================================================
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
+
 import creerExo
 import bibliotheque
 import patients
 import os
 import ctypes
 import data
+import sys
 from data import AppData
 from data import Patient
-#=====================================================================================================================
+import cv2
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 class Ui_MainWindow(object):
+	"""
+    Class to load main menu view
+    """
 	def setupUi(self, MainWindow):
+		"""Method to setup main menu view"""
 		MainWindow.setObjectName("MainWindow")
 		MainWindow.resize(1200, 650)		#=====================================================================================================================
 		self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -152,21 +162,26 @@ class Ui_MainWindow(object):
 		
 		#=====================================================================================================================
 		#Affectation des boutons
-		def creer(self):
-			ui = creerExo.Ui_MainWindow()
-			ui.setupUi(MainWindow)
-		def lib(self):
-			ui = bibliotheque.Ui_MainWindow()
-			ui.setupUi(MainWindow)
-		def gestion(self):
-			ui = patients.Ui_MainWindow()
-			ui.setupUi(MainWindow)
-		self.pushButton_creer.clicked.connect(creer)
-		self.pushButton_gestion.clicked.connect(gestion)
-		self.pushButton_lib.clicked.connect(lib)
-		#=====================================================================================================================
+		self.pushButton_creer.clicked.connect(lambda : self.creer(MainWindow))
+		self.pushButton_gestion.clicked.connect(lambda : self.gestion(MainWindow))
+		self.pushButton_lib.clicked.connect(lambda : self.lib(MainWindow))
+
+	def creer(self,MainWindow):
+		"""Method to change view to create an exercice"""
+		ui = creerExo.Ui_MainWindow()
+		ui.setupUi(MainWindow)
+	def lib(self,MainWindow):
+		"""Method to change view to see all exercices"""
+		ui = bibliotheque.Ui_MainWindow()
+		ui.setupUi(MainWindow)
+	def gestion(self,MainWindow):
+		"""Method to change view to manage program for patients"""
+		ui = patients.Ui_MainWindow()
+		ui.setupUi(MainWindow)
+		#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	def retranslateUi(self, MainWindow):
+		"""Method for the retranslation"""
 		_translate = QtCore.QCoreApplication.translate
 		MainWindow.setWindowTitle(_translate("MainWindow", "Application Croix Rouge"))
 		self.label_2.setText(_translate("MainWindow", "Menu Principal"))
@@ -177,7 +192,7 @@ class Ui_MainWindow(object):
 
 
 if __name__ == "__main__":
-	import sys
+	"""Launch main menu view"""
 	app = QtWidgets.QApplication(sys.argv)
 
 	#=====================================================================================================================
@@ -186,7 +201,7 @@ if __name__ == "__main__":
 	app.setWindowIcon(QtGui.QIcon(scriptDir + os.path.sep + 'images' + os.path.sep +'icon.png'))	
 	myappid = 'mycompany.myproduct.subproduct.version' # arbitrary string
 	ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
-	#=====================================================================================================================
+	#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	MainWindow = QtWidgets.QMainWindow()
 	ui = Ui_MainWindow()

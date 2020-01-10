@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.2" />
+<title>tests API documentation</title>
+<meta name="description" content="" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>tests</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import data
+import unittest
+from data import *
+
+
+class TestDataClasses(unittest.TestCase):
+    &#34;&#34;&#34;
+    Class to test data file classes
+    &#34;&#34;&#34;
+    def setUp(self):
+        &#34;&#34;&#34;Init variables needed for all tests&#34;&#34;&#34;
+        self.listMembre = []
+        self.listMembre.append(&#34;bras gauche&#34;)
+        self.listMembre.append(&#34;bras droit&#34;)
+        self.exercice = data.Exercice(&#34;Mouvement des bras&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+        self.exercice_a = data.Exercice(&#34;Mouvement des jambes&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+        self.exercice_b = data.Exercice(&#34;Mouvement des hanches&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+        self.exercice_1 = data.Exercice(&#34;Mouvement des&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+        self.exercice_2 = data.Exercice(&#34;Mouvement hanches&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+
+        self.patient = data.Patient(&#34;Claude&#34; , &#34;123&#34;)
+        self.patient_b = data.Patient(&#34;Gaetan&#34; , &#34;789&#34;)
+
+        self.patient_1 = data.Patient(&#34;JP&#34; , &#34;456&#34;)
+        self.patient_2 = data.Patient(&#34;JN&#34; , &#34;654&#34;)
+
+        self.listExo = [self.exercice_a,self.exercice_b]
+        self.listExo_b = [self.exercice_1,self.exercice_2]
+        self.program_a = data.Program(self.listExo,self.patient_b)
+        self.program_b = data.Program(self.listExo_b,self.patient_b)
+
+        self.bib_a = [self.exercice,self.exercice_a,self.exercice_b]
+        self.bib_b = [self.exercice_1,self.exercice_2]
+
+        self.listP_a = [self.patient,self.patient_b]
+        self.listP_b = [self.patient_1,self.patient_2]
+
+        self.allData = data.AppData(self.bib_a,self.listP_a,[self.program_a,self.program_b])
+
+    def test_Exercice_GetName(self):
+        self.assertEqual(&#34;Mouvement des bras&#34;, self.exercice.getName())
+
+    def test_Exercice_GetMemberList(self):
+        self.assertIn(&#34;bras gauche&#34;, self.exercice.getMemberList())
+        self.assertIn(&#34;bras droit&#34;, self.exercice.getMemberList())
+
+    def test_Exercice_GetDescription(self):
+        self.assertEqual(&#34;Pour rééducation&#34;, self.exercice.getDescription())
+
+    def test_Exercice_GetVideoPath(self):
+        self.assertEqual(&#34;ex/path&#34;, self.exercice.getVideoPath())
+
+    def test_Exercice_SetName(self):
+        self.exercice.setName(&#34;Mouvement des &#34;)
+        self.assertEqual(&#34;Mouvement des &#34;, self.exercice.getName())
+
+    def test_Exercice_SetMemberList(self):
+        liste = []
+        liste.append(&#34;bras g&#34;)
+        liste.append(&#34;bras d&#34;)
+        self.exercice.setMemberList(liste)
+        self.assertIn(&#34;bras g&#34;, self.exercice.getMemberList())
+        self.assertIn(&#34;bras d&#34;, self.exercice.getMemberList())
+    
+    def test_Exercice_SetDescription(self):
+        self.exercice.setDescription(&#34;Pour quelque chose&#34;)
+        self.assertEqual(&#34;Pour quelque chose&#34;, self.exercice.getDescription())
+
+    def test_Exercice_SetVideoPath(self):
+        self.exercice.setVideoPath(&#34;c://cr&#34;)
+        self.assertEqual(&#34;c://cr&#34;, self.exercice.getVideoPath())
+
+    def test_Patient_GetName(self):
+        self.assertEqual(&#34;Claude&#34;, self.patient.getName())
+
+    def test_Patient_GetIpp(self):
+        self.assertEqual(&#34;123&#34;, self.patient.getIpp())
+
+    def test_Patient_SetName(self):
+        self.patient.setName(&#34;François&#34;)
+        self.assertEqual(&#34;François&#34;, self.patient.getName())
+
+    def test_Patient_SetIpp(self):
+        self.patient.setIPP(&#34;321&#34;)
+        self.assertEqual(&#34;321&#34;, self.patient.getIpp())
+    
+    def test_Program_GetPatient(self):
+        self.assertEqual(&#34;Gaetan&#34;,self.program_a.getPatient().getName())
+
+    def test_Program_GetListExo(self):
+        self.assertIn(self.exercice_a,self.program_a.getListExercice())
+        self.assertIn(self.exercice_b,self.program_a.getListExercice())
+
+    def test_Program_SetPatient(self):
+        self.program_a.setPatient(self.patient)
+        self.assertEqual(self.patient,self.program_a.getPatient())
+
+    def test_Program_SetListExo(self):
+        
+        self.program_a.setListExercice([self.exercice_1,self.exercice_2])
+        self.assertIn(self.exercice_1,self.program_a.getListExercice())
+        self.assertIn(self.exercice_2,self.program_a.getListExercice())
+    
+    def test_AppData_GetBibliotheque(self):
+        self.assertEqual(self.bib_a,self.allData.getBibliotheque())
+
+    def test_AppData_SetBibliotheque(self):
+        self.allData.setBibliotheque(self.bib_b)
+        self.assertEqual(self.bib_b,self.allData.getBibliotheque())
+
+    def test_AppData_GetListPatient(self):
+        self.assertIn(self.patient,self.allData.getListPatient())
+
+    def test_AppData_SetListPatient(self):
+        self.allData.getListPatient().append(self.patient_1)
+        self.assertIn(self.patient_1,self.allData.getListPatient())
+
+
+    # SERIALIZATION
+
+    def test_serialization(self):
+        data.seralize(self.allData,&#34;test.dat&#34;)
+        data_out = data.deserialize(&#34;test.dat&#34;)
+        self.assertEqual(self.allData.getListPatient()[0].getName(),
+            data_out.getListPatient()[0].getName())
+
+if __name__ == &#34;__main__&#34;:
+    &#34;&#34;&#34;Launch tests&#34;&#34;&#34; 
+    unittest.main()
+    pass</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="tests.TestDataClasses"><code class="flex name class">
+<span>class <span class="ident">TestDataClasses</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Class to test data file classes</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestDataClasses(unittest.TestCase):
+    &#34;&#34;&#34;
+    Class to test data file classes
+    &#34;&#34;&#34;
+    def setUp(self):
+        &#34;&#34;&#34;Init variables needed for all tests&#34;&#34;&#34;
+        self.listMembre = []
+        self.listMembre.append(&#34;bras gauche&#34;)
+        self.listMembre.append(&#34;bras droit&#34;)
+        self.exercice = data.Exercice(&#34;Mouvement des bras&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+        self.exercice_a = data.Exercice(&#34;Mouvement des jambes&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+        self.exercice_b = data.Exercice(&#34;Mouvement des hanches&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+        self.exercice_1 = data.Exercice(&#34;Mouvement des&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+        self.exercice_2 = data.Exercice(&#34;Mouvement hanches&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+
+        self.patient = data.Patient(&#34;Claude&#34; , &#34;123&#34;)
+        self.patient_b = data.Patient(&#34;Gaetan&#34; , &#34;789&#34;)
+
+        self.patient_1 = data.Patient(&#34;JP&#34; , &#34;456&#34;)
+        self.patient_2 = data.Patient(&#34;JN&#34; , &#34;654&#34;)
+
+        self.listExo = [self.exercice_a,self.exercice_b]
+        self.listExo_b = [self.exercice_1,self.exercice_2]
+        self.program_a = data.Program(self.listExo,self.patient_b)
+        self.program_b = data.Program(self.listExo_b,self.patient_b)
+
+        self.bib_a = [self.exercice,self.exercice_a,self.exercice_b]
+        self.bib_b = [self.exercice_1,self.exercice_2]
+
+        self.listP_a = [self.patient,self.patient_b]
+        self.listP_b = [self.patient_1,self.patient_2]
+
+        self.allData = data.AppData(self.bib_a,self.listP_a,[self.program_a,self.program_b])
+
+    def test_Exercice_GetName(self):
+        self.assertEqual(&#34;Mouvement des bras&#34;, self.exercice.getName())
+
+    def test_Exercice_GetMemberList(self):
+        self.assertIn(&#34;bras gauche&#34;, self.exercice.getMemberList())
+        self.assertIn(&#34;bras droit&#34;, self.exercice.getMemberList())
+
+    def test_Exercice_GetDescription(self):
+        self.assertEqual(&#34;Pour rééducation&#34;, self.exercice.getDescription())
+
+    def test_Exercice_GetVideoPath(self):
+        self.assertEqual(&#34;ex/path&#34;, self.exercice.getVideoPath())
+
+    def test_Exercice_SetName(self):
+        self.exercice.setName(&#34;Mouvement des &#34;)
+        self.assertEqual(&#34;Mouvement des &#34;, self.exercice.getName())
+
+    def test_Exercice_SetMemberList(self):
+        liste = []
+        liste.append(&#34;bras g&#34;)
+        liste.append(&#34;bras d&#34;)
+        self.exercice.setMemberList(liste)
+        self.assertIn(&#34;bras g&#34;, self.exercice.getMemberList())
+        self.assertIn(&#34;bras d&#34;, self.exercice.getMemberList())
+    
+    def test_Exercice_SetDescription(self):
+        self.exercice.setDescription(&#34;Pour quelque chose&#34;)
+        self.assertEqual(&#34;Pour quelque chose&#34;, self.exercice.getDescription())
+
+    def test_Exercice_SetVideoPath(self):
+        self.exercice.setVideoPath(&#34;c://cr&#34;)
+        self.assertEqual(&#34;c://cr&#34;, self.exercice.getVideoPath())
+
+    def test_Patient_GetName(self):
+        self.assertEqual(&#34;Claude&#34;, self.patient.getName())
+
+    def test_Patient_GetIpp(self):
+        self.assertEqual(&#34;123&#34;, self.patient.getIpp())
+
+    def test_Patient_SetName(self):
+        self.patient.setName(&#34;François&#34;)
+        self.assertEqual(&#34;François&#34;, self.patient.getName())
+
+    def test_Patient_SetIpp(self):
+        self.patient.setIPP(&#34;321&#34;)
+        self.assertEqual(&#34;321&#34;, self.patient.getIpp())
+    
+    def test_Program_GetPatient(self):
+        self.assertEqual(&#34;Gaetan&#34;,self.program_a.getPatient().getName())
+
+    def test_Program_GetListExo(self):
+        self.assertIn(self.exercice_a,self.program_a.getListExercice())
+        self.assertIn(self.exercice_b,self.program_a.getListExercice())
+
+    def test_Program_SetPatient(self):
+        self.program_a.setPatient(self.patient)
+        self.assertEqual(self.patient,self.program_a.getPatient())
+
+    def test_Program_SetListExo(self):
+        
+        self.program_a.setListExercice([self.exercice_1,self.exercice_2])
+        self.assertIn(self.exercice_1,self.program_a.getListExercice())
+        self.assertIn(self.exercice_2,self.program_a.getListExercice())
+    
+    def test_AppData_GetBibliotheque(self):
+        self.assertEqual(self.bib_a,self.allData.getBibliotheque())
+
+    def test_AppData_SetBibliotheque(self):
+        self.allData.setBibliotheque(self.bib_b)
+        self.assertEqual(self.bib_b,self.allData.getBibliotheque())
+
+    def test_AppData_GetListPatient(self):
+        self.assertIn(self.patient,self.allData.getListPatient())
+
+    def test_AppData_SetListPatient(self):
+        self.allData.getListPatient().append(self.patient_1)
+        self.assertIn(self.patient_1,self.allData.getListPatient())
+
+
+    # SERIALIZATION
+
+    def test_serialization(self):
+        data.seralize(self.allData,&#34;test.dat&#34;)
+        data_out = data.deserialize(&#34;test.dat&#34;)
+        self.assertEqual(self.allData.getListPatient()[0].getName(),
+            data_out.getListPatient()[0].getName())</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="tests.TestDataClasses.setUp"><code class="name flex">
+<span>def <span class="ident">setUp</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Init variables needed for all tests</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setUp(self):
+    &#34;&#34;&#34;Init variables needed for all tests&#34;&#34;&#34;
+    self.listMembre = []
+    self.listMembre.append(&#34;bras gauche&#34;)
+    self.listMembre.append(&#34;bras droit&#34;)
+    self.exercice = data.Exercice(&#34;Mouvement des bras&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+    self.exercice_a = data.Exercice(&#34;Mouvement des jambes&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+    self.exercice_b = data.Exercice(&#34;Mouvement des hanches&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+    self.exercice_1 = data.Exercice(&#34;Mouvement des&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+    self.exercice_2 = data.Exercice(&#34;Mouvement hanches&#34;,self.listMembre,&#34;Pour rééducation&#34;, &#34;ex/path&#34;)
+
+    self.patient = data.Patient(&#34;Claude&#34; , &#34;123&#34;)
+    self.patient_b = data.Patient(&#34;Gaetan&#34; , &#34;789&#34;)
+
+    self.patient_1 = data.Patient(&#34;JP&#34; , &#34;456&#34;)
+    self.patient_2 = data.Patient(&#34;JN&#34; , &#34;654&#34;)
+
+    self.listExo = [self.exercice_a,self.exercice_b]
+    self.listExo_b = [self.exercice_1,self.exercice_2]
+    self.program_a = data.Program(self.listExo,self.patient_b)
+    self.program_b = data.Program(self.listExo_b,self.patient_b)
+
+    self.bib_a = [self.exercice,self.exercice_a,self.exercice_b]
+    self.bib_b = [self.exercice_1,self.exercice_2]
+
+    self.listP_a = [self.patient,self.patient_b]
+    self.listP_b = [self.patient_1,self.patient_2]
+
+    self.allData = data.AppData(self.bib_a,self.listP_a,[self.program_a,self.program_b])</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_AppData_GetBibliotheque"><code class="name flex">
+<span>def <span class="ident">test_AppData_GetBibliotheque</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_AppData_GetBibliotheque(self):
+    self.assertEqual(self.bib_a,self.allData.getBibliotheque())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_AppData_GetListPatient"><code class="name flex">
+<span>def <span class="ident">test_AppData_GetListPatient</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_AppData_GetListPatient(self):
+    self.assertIn(self.patient,self.allData.getListPatient())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_AppData_SetBibliotheque"><code class="name flex">
+<span>def <span class="ident">test_AppData_SetBibliotheque</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_AppData_SetBibliotheque(self):
+    self.allData.setBibliotheque(self.bib_b)
+    self.assertEqual(self.bib_b,self.allData.getBibliotheque())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_AppData_SetListPatient"><code class="name flex">
+<span>def <span class="ident">test_AppData_SetListPatient</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_AppData_SetListPatient(self):
+    self.allData.getListPatient().append(self.patient_1)
+    self.assertIn(self.patient_1,self.allData.getListPatient())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Exercice_GetDescription"><code class="name flex">
+<span>def <span class="ident">test_Exercice_GetDescription</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Exercice_GetDescription(self):
+    self.assertEqual(&#34;Pour rééducation&#34;, self.exercice.getDescription())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Exercice_GetMemberList"><code class="name flex">
+<span>def <span class="ident">test_Exercice_GetMemberList</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Exercice_GetMemberList(self):
+    self.assertIn(&#34;bras gauche&#34;, self.exercice.getMemberList())
+    self.assertIn(&#34;bras droit&#34;, self.exercice.getMemberList())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Exercice_GetName"><code class="name flex">
+<span>def <span class="ident">test_Exercice_GetName</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Exercice_GetName(self):
+    self.assertEqual(&#34;Mouvement des bras&#34;, self.exercice.getName())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Exercice_GetVideoPath"><code class="name flex">
+<span>def <span class="ident">test_Exercice_GetVideoPath</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Exercice_GetVideoPath(self):
+    self.assertEqual(&#34;ex/path&#34;, self.exercice.getVideoPath())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Exercice_SetDescription"><code class="name flex">
+<span>def <span class="ident">test_Exercice_SetDescription</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Exercice_SetDescription(self):
+    self.exercice.setDescription(&#34;Pour quelque chose&#34;)
+    self.assertEqual(&#34;Pour quelque chose&#34;, self.exercice.getDescription())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Exercice_SetMemberList"><code class="name flex">
+<span>def <span class="ident">test_Exercice_SetMemberList</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Exercice_SetMemberList(self):
+    liste = []
+    liste.append(&#34;bras g&#34;)
+    liste.append(&#34;bras d&#34;)
+    self.exercice.setMemberList(liste)
+    self.assertIn(&#34;bras g&#34;, self.exercice.getMemberList())
+    self.assertIn(&#34;bras d&#34;, self.exercice.getMemberList())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Exercice_SetName"><code class="name flex">
+<span>def <span class="ident">test_Exercice_SetName</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Exercice_SetName(self):
+    self.exercice.setName(&#34;Mouvement des &#34;)
+    self.assertEqual(&#34;Mouvement des &#34;, self.exercice.getName())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Exercice_SetVideoPath"><code class="name flex">
+<span>def <span class="ident">test_Exercice_SetVideoPath</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Exercice_SetVideoPath(self):
+    self.exercice.setVideoPath(&#34;c://cr&#34;)
+    self.assertEqual(&#34;c://cr&#34;, self.exercice.getVideoPath())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Patient_GetIpp"><code class="name flex">
+<span>def <span class="ident">test_Patient_GetIpp</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Patient_GetIpp(self):
+    self.assertEqual(&#34;123&#34;, self.patient.getIpp())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Patient_GetName"><code class="name flex">
+<span>def <span class="ident">test_Patient_GetName</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Patient_GetName(self):
+    self.assertEqual(&#34;Claude&#34;, self.patient.getName())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Patient_SetIpp"><code class="name flex">
+<span>def <span class="ident">test_Patient_SetIpp</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Patient_SetIpp(self):
+    self.patient.setIPP(&#34;321&#34;)
+    self.assertEqual(&#34;321&#34;, self.patient.getIpp())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Patient_SetName"><code class="name flex">
+<span>def <span class="ident">test_Patient_SetName</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Patient_SetName(self):
+    self.patient.setName(&#34;François&#34;)
+    self.assertEqual(&#34;François&#34;, self.patient.getName())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Program_GetListExo"><code class="name flex">
+<span>def <span class="ident">test_Program_GetListExo</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Program_GetListExo(self):
+    self.assertIn(self.exercice_a,self.program_a.getListExercice())
+    self.assertIn(self.exercice_b,self.program_a.getListExercice())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Program_GetPatient"><code class="name flex">
+<span>def <span class="ident">test_Program_GetPatient</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Program_GetPatient(self):
+    self.assertEqual(&#34;Gaetan&#34;,self.program_a.getPatient().getName())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Program_SetListExo"><code class="name flex">
+<span>def <span class="ident">test_Program_SetListExo</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Program_SetListExo(self):
+    
+    self.program_a.setListExercice([self.exercice_1,self.exercice_2])
+    self.assertIn(self.exercice_1,self.program_a.getListExercice())
+    self.assertIn(self.exercice_2,self.program_a.getListExercice())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_Program_SetPatient"><code class="name flex">
+<span>def <span class="ident">test_Program_SetPatient</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_Program_SetPatient(self):
+    self.program_a.setPatient(self.patient)
+    self.assertEqual(self.patient,self.program_a.getPatient())</code></pre>
+</details>
+</dd>
+<dt id="tests.TestDataClasses.test_serialization"><code class="name flex">
+<span>def <span class="ident">test_serialization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_serialization(self):
+    data.seralize(self.allData,&#34;test.dat&#34;)
+    data_out = data.deserialize(&#34;test.dat&#34;)
+    self.assertEqual(self.allData.getListPatient()[0].getName(),
+        data_out.getListPatient()[0].getName())</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="tests.TestDataClasses" href="#tests.TestDataClasses">TestDataClasses</a></code></h4>
+<ul class="">
+<li><code><a title="tests.TestDataClasses.setUp" href="#tests.TestDataClasses.setUp">setUp</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_AppData_GetBibliotheque" href="#tests.TestDataClasses.test_AppData_GetBibliotheque">test_AppData_GetBibliotheque</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_AppData_GetListPatient" href="#tests.TestDataClasses.test_AppData_GetListPatient">test_AppData_GetListPatient</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_AppData_SetBibliotheque" href="#tests.TestDataClasses.test_AppData_SetBibliotheque">test_AppData_SetBibliotheque</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_AppData_SetListPatient" href="#tests.TestDataClasses.test_AppData_SetListPatient">test_AppData_SetListPatient</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Exercice_GetDescription" href="#tests.TestDataClasses.test_Exercice_GetDescription">test_Exercice_GetDescription</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Exercice_GetMemberList" href="#tests.TestDataClasses.test_Exercice_GetMemberList">test_Exercice_GetMemberList</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Exercice_GetName" href="#tests.TestDataClasses.test_Exercice_GetName">test_Exercice_GetName</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Exercice_GetVideoPath" href="#tests.TestDataClasses.test_Exercice_GetVideoPath">test_Exercice_GetVideoPath</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Exercice_SetDescription" href="#tests.TestDataClasses.test_Exercice_SetDescription">test_Exercice_SetDescription</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Exercice_SetMemberList" href="#tests.TestDataClasses.test_Exercice_SetMemberList">test_Exercice_SetMemberList</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Exercice_SetName" href="#tests.TestDataClasses.test_Exercice_SetName">test_Exercice_SetName</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Exercice_SetVideoPath" href="#tests.TestDataClasses.test_Exercice_SetVideoPath">test_Exercice_SetVideoPath</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Patient_GetIpp" href="#tests.TestDataClasses.test_Patient_GetIpp">test_Patient_GetIpp</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Patient_GetName" href="#tests.TestDataClasses.test_Patient_GetName">test_Patient_GetName</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Patient_SetIpp" href="#tests.TestDataClasses.test_Patient_SetIpp">test_Patient_SetIpp</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Patient_SetName" href="#tests.TestDataClasses.test_Patient_SetName">test_Patient_SetName</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Program_GetListExo" href="#tests.TestDataClasses.test_Program_GetListExo">test_Program_GetListExo</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Program_GetPatient" href="#tests.TestDataClasses.test_Program_GetPatient">test_Program_GetPatient</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Program_SetListExo" href="#tests.TestDataClasses.test_Program_SetListExo">test_Program_SetListExo</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_Program_SetPatient" href="#tests.TestDataClasses.test_Program_SetPatient">test_Program_SetPatient</a></code></li>
+<li><code><a title="tests.TestDataClasses.test_serialization" href="#tests.TestDataClasses.test_serialization">test_serialization</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.2</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

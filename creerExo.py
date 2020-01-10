@@ -18,10 +18,14 @@ import sys
 import menu
 import data
 import cv2
-#=====================================================================================================================
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 class Ui_MainWindow(object):
+	"""
+    Class to load the view to create exercices
+    """
 	def setupUi(self, MainWindow):
+		"""Method to setup the view to create an exercice"""
 		MainWindow.setObjectName("MainWindow")
 		#MainWindow.resize(893, 669)#=====================================================================================================================
 		self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -128,11 +132,14 @@ class Ui_MainWindow(object):
 		self.gridLayout_8.addWidget(self.verticalWidget, 1, 1, 1, 1)
 
 
-		# ------ Modification ------ #
+		#=====================================================================================================================
 		self.fps = 24
-		self.cap = cv2.VideoCapture(0)
+		"""Frame per second"""
+
+		self.cap = cv2.VideoCapture(0)	#This method take time to load -> TODO fix/reduce this issue
+
 		self.cameraWidget = QtWidgets.QLabel(self.base)
-		self.cameraWidget.setAlignment(Qt.AlignCenter)
+		self.cameraWidget.setAlignment(Qt.AlignCenter)#Center the camera stream horizontaly
 		self.isCapturing = False
 		self.ith_frame = 1
 		self.start()
@@ -145,7 +152,7 @@ class Ui_MainWindow(object):
 "border-top-radius: 20px;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(111, 111, 111, 255), stop:0.994318 rgba(156, 156, 156, 255));")
 		"""
-		# ------ Modification ------ #
+		#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 		self.cameraWidget.setObjectName("cameraWidget")
 		self.gridLayout_6 = QtWidgets.QGridLayout(self.cameraWidget)
@@ -259,15 +266,16 @@ class Ui_MainWindow(object):
 		for part in cat:
 			self.comboBox_Part.addItem(part)
 			
-		#=====================================================================================================================
+		#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	def retranslateUi(self, MainWindow):
+		"""Method for the retranslation"""
 		_translate = QtCore.QCoreApplication.translate
-		#MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#=====================================================================================================================
+		#MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#===============================================
 		self.label_3.setText(_translate("MainWindow", "Créer un exercice"))
 		self.label_5.setText(_translate("MainWindow", "Nom de l\'exercice"))
 		self.label_Part.setText(_translate("MainWindow", "Partie du corps"))
-		#self.comboBox_Part.setItemText(0, _translate("MainWindow", "Membre supérieur"))
+		#self.comboBox_Part.setItemText(0, _translate("MainWindow", "Membre supérieur"))#=============
 		self.label_6.setText(_translate("MainWindow", "Description"))
 		self.label_indication.setText(_translate("MainWindow", "Prêt à la capture "))
 		self.pushButton_replay.setText(_translate("MainWindow", "Rejouer"))
@@ -278,25 +286,25 @@ class Ui_MainWindow(object):
 		self.pushButton_back.setText(_translate("MainWindow", "Retour Menu"))
 
 
-	#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	#=========================================================================================
 	def back(self,MainWindow):
+		"""Method to go to the previous window"""
 		ui = menu.Ui_MainWindow()
 		ui.setupUi(MainWindow)
 		self.timer.stop()
 		self.cap.release()
 	
 	def setFPS(self, fps):
+		"""Method to set the camera frame per second stream"""
 		self.fps = fps
 
 	def nextFrameSlot(self):
+		"""Method to refresh camera frame on view"""
 		ret, frame = self.cap.read()
 
-		# ------ Modification ------ #
-		# Save images if isCapturing
 		if self.isCapturing:
 			cv2.imwrite('img_%05d.jpg'%self.ith_frame, frame)
 			self.ith_frame += 1
-		# ------ Modification ------ #
 
 		# My webcam yields frames in BGR format
 		frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -305,15 +313,20 @@ class Ui_MainWindow(object):
 		self.cameraWidget.setPixmap(pix)
 
 	def start(self):
+		"""Method to start camera stream / Unfreeze"""
 		self.timer = QtCore.QTimer()
 		self.timer.timeout.connect(self.nextFrameSlot)
 		self.timer.start((1000 / self.fps))
+
+	def stop(self):
+		"""Method to freeze camera stream"""
+		self.timer.stop()
 		
 	#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 if __name__ == "__main__":
-	
+	"""Launch view to create an exercice"""
 	app = QtWidgets.QApplication(sys.argv)
 	MainWindow = QtWidgets.QMainWindow()
 	ui = Ui_MainWindow()
