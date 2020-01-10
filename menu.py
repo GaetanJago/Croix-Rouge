@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
 	def setupUi(self, MainWindow):
 		"""Method to setup main menu view"""
 		MainWindow.setObjectName("MainWindow")
-		MainWindow.resize(1200, 650)		#=====================================================================================================================
+		MainWindow.resize(1200, 650)		#===========================================================
 		self.centralwidget = QtWidgets.QWidget(MainWindow)
 		self.centralwidget.setObjectName("centralwidget")
 		self.gridLayout_3 = QtWidgets.QGridLayout(self.centralwidget)
@@ -188,7 +188,7 @@ class Ui_MainWindow(object):
 		self.pushButton_creer.setText(_translate("MainWindow", "Créer un exercice"))
 		self.pushButton_lib.setText(_translate("MainWindow", "Bibliothèque d\'exercices"))
 		self.pushButton_gestion.setText(_translate("MainWindow", "Gestion des programmes\n"
-"thérapeuthiques"))
+"thérapeutiques"))
 
 
 if __name__ == "__main__":

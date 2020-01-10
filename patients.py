@@ -275,8 +275,8 @@ class Ui_MainWindow(object):
         """Method for the retranslation"""
         _translate = QtCore.QCoreApplication.translate
         #MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#==================================================================
-        self.label_3.setText(_translate("MainWindow", "Gestion des programmes thérapeuthiques"))
-        self.pushButton_gestion.setText(_translate("MainWindow", "Gestion du programme thérapeuthique"))
+        self.label_3.setText(_translate("MainWindow", "Gestion des programmes thérapeutiques"))
+        self.pushButton_gestion.setText(_translate("MainWindow", "Gestion du programme thérapeutique"))
         self.pushButton_res.setText(_translate("MainWindow", "Résultat du patient"))
         self.pushButton_back.setText(_translate("MainWindow", "Retour Menu"))
         self.label_2.setText(_translate("MainWindow", "Ajouter un patient"))
