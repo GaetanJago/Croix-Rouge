@@ -241,10 +241,10 @@ class Ui_MainWindow(object):
 		"""Method for the retranslation"""
 		_translate = QtCore.QCoreApplication.translate
 		#MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))#==============================================
-		self.label_3.setText(_translate("MainWindow", "Gestion des programmes thérapeutiques"))
+		self.label_3.setText(_translate("MainWindow", "Gestion des programmes thérapeuthiques"))
 		self.pushButton_cancel.setText(_translate("MainWindow", "Annuler"))
 		self.pushButton_save.setText(_translate("MainWindow", "Sauvegarder"))
-		self.label_patient.setText(_translate("MainWindow", "Programme de ..."))
+		self.label_patient.setText(_translate("MainWindow", "Programme de Jean S (78784)"))
 		self.label_4.setText(_translate("MainWindow", "Temps de pause"))
 		self.comboBox_repos.setItemText(0, _translate("MainWindow", "30s"))
 		item = self.tableWidget_prog.horizontalHeaderItem(0)
