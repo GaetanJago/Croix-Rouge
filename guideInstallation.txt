@@ -1,0 +1,50 @@
+Ceci est un guide d'installation pour éxécuter l'application
+
+======= 1 - Installer Python3 =======
+
+Pour Windows :
+https://www.python.org/downloads/
+Télécharger la version "executable installer"
+
+Lors de l'installation cocher la case "Add Python to PATH"
+Puis cliquer sur Install Now
+
+
+
+Pour Linux :
+Python 3 est présent sur la machine mais il est possible de le vérifier avec la commande
+python3 --version
+S'il n'est pas installé voir
+https://doc.ubuntu-fr.org/python
+
+======= 2 - Installer pip3 =======
+
+Pour Windows :
+pip3 est installé avec Python
+
+
+Pour Linux :
+sudo apt install python3-pip
+
+
+======= 3 - Installer les bibliothèques =======
+
+pip3 install opencv-python
+pip3 install pyqt5
+
+
+======= 4 - Lancer l'application =======
+
+Pour Windows :
+ouvrir un CMD
+python menu.py
+
+Pour Linux :
+python3 menu.py
+
+Si l'erreur suivante apparaît :
+File "menu.py", line 203, in <module>
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+AttributeError: module 'ctypes' has no attribute 'windll'
+
+Il suffit de commenter la ligne qui provoque l'erreur et relancer le programme
