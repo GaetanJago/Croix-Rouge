@@ -225,7 +225,7 @@ class Ui_MainWindow(object):
         
         self.pushButton_back.clicked.connect(lambda : self.back(MainWindow))
         self.pushButton_gestion.clicked.connect(lambda : self.prog(MainWindow))
-        self.pushButton_add.clicked.connect(lambda : self.addPatient(self.lineEdit_name.text(),self.lineEdit_ipp.text()))
+        self.pushButton_add.clicked.connect(lambda : self.addPatient(self.lineEdit_name.text(),self.lineEdit_ipp.text(),MainWindow))
 
         #sync data dans le tableau and ajustement des tailles des colonnes
         self.syncData()
@@ -233,7 +233,7 @@ class Ui_MainWindow(object):
         header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
         header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
 
-    def addPatient(self,name,ipp):
+    def addPatient(self,name,ipp,MainWindow):
         """Method to add and save a new patient using the fields"""
         #Confirmation message
         qm = QtWidgets.QMessageBox()
