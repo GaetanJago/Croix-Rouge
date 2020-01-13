@@ -1,7 +1,13 @@
-- jambe
-jambe droite
-jambe gauche
-- haut du corps
-bras gauche
-- tout le corps
-hanches
+- Membre supérieur
+Epaule
+Coude
+Avant bras
+Poignets
+Mouvements combines
+- Membre inférieur
+Hanche
+Genou
+Pied
+
+Hemicorps
+Mouvements symetriques
